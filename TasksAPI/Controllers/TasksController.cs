@@ -28,9 +28,9 @@ namespace TasksAPI.Controllers
         }
 
         [HttpPut("EditTasks")]
-        public async Task<int> Put([FromBody] Tasks tasklinput)
+        public async Task<IActionResult> Put([FromBody] Tasks tasklinput)
         {
-            return await _taskinterface.EditTasks(tasklinput);
+            return Ok(await _taskinterface.EditTasks(tasklinput));
         }
 
         [HttpDelete("DeleteTasks/{taskid}")]
